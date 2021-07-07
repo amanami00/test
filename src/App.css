@@ -1,0 +1,15 @@
+.App {
+    text-align: center;
+}
+
+.search-input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.player-info {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
