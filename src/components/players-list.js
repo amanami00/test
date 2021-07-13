@@ -36,7 +36,7 @@ const PlayerInfo = ({Id, PFName, SkillDesc, Value, UpComingMatchesList}) => {
 
 const PlayersList = () => {
     const [playerList, setPlayerList] = useState([]);
-    const [searchText, setSearchText] = useState([]);
+    const [searchText, setSearchText] = useState('');
 
     useEffect(() => {
         let mounted = true;
@@ -54,9 +54,12 @@ const PlayersList = () => {
         setSearchText(event.target.value);
     }
 
-    // Filter the list based on search 
+    // Filter the list based on search
+    const newSearchText = searchText && searchText.toLowerCase();
+
     const searchedPlayers = playerList.filter(player =>
-        player.PFName.includes(searchText) || player.TName.includes(searchText)
+        player.PFName.toLowerCase().includes(newSearchText)
+            || player.TName.toLowerCase().includes(newSearchText)
     );
     const updatePlayerList = searchedPlayers.length === 0 ? playerList : searchedPlayers;
     // Sort the players list in ascending order of palyer Value
